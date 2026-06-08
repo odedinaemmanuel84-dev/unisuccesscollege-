@@ -1,107 +1,166 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Statistics from "../components/Statistics";
 import ProgrammeCard from "../components/ProgrammeCard";
 import Testimonial from "../components/Testimonial";
+import CTASection from "../components/CTASection";
 import NewsSection from "../components/NewsSection";
 import PartnerUniversities from "../components/PartnerUniversities";
-import CTASection from "../components/CTASection";
 
-function Home() {
+import { motion } from "framer-motion";
+import {
+  FaGraduationCap,
+  FaGlobe,
+  FaUserShield,
+  FaHospital,
+} from "react-icons/fa";
+
+export default function Home() {
   const programmes = [
     {
       title: "Nursing",
-      description: "Professional healthcare education."
+      icon: <FaHospital />,
+      description:
+        "Professional nursing education designed to prepare competent healthcare practitioners.",
     },
     {
       title: "Software Engineering",
-      description: "Modern programming and development."
+      icon: <FaGraduationCap />,
+      description:
+        "Develop practical software development skills using modern technologies.",
     },
     {
-      title: "Business Administration",
-      description: "Leadership and management skills."
-    }
+      title: "International Relations",
+      icon: <FaGlobe />,
+      description:
+        "Prepare for global leadership and diplomatic careers.",
+    },
+    {
+      title: "Cyber Security",
+      icon: <FaUserShield />,
+      description:
+        "Protect digital systems with industry-relevant security expertise.",
+    },
   ];
 
-  const testimonials = [
+  const features = [
     {
-      name: "John Doe",
-      text: "This institution transformed my future."
+      title: "Experienced Lecturers",
+      text: "Learn from highly qualified academic professionals.",
     },
     {
-      name: "Mary Johnson",
-      text: "Excellent lecturers and quality education."
+      title: "Affordable Tuition",
+      text: "Quality education at accessible costs.",
     },
     {
-      name: "David James",
-      text: "Highly recommended for ambitious students."
-    }
+      title: "International Opportunities",
+      text: "Global partnerships and online study programmes.",
+    },
+    {
+      title: "Career Development",
+      text: "Industry-focused programmes for employability.",
+    },
   ];
 
   return (
     <>
-      <Navbar />
-
+      {/* HERO */}
       <Hero />
 
+      {/* STATISTICS */}
       <Statistics />
 
-      {/* Featured Programmes */}
-      <section className="max-w-7xl mx-auto px-5 py-20">
+      {/* FEATURED PROGRAMMES */}
+      <section className="section-padding bg-white">
+        <div className="container-custom px-6">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="text-center mb-14"
+          >
+            <span className="text-yellow-500 font-bold uppercase">
+              Featured Programmes
+            </span>
 
-        <h2 className="text-4xl font-bold text-center mb-10">
-          Featured Programmes
-        </h2>
+            <h2 className="text-4xl font-bold text-slate-900 mt-3">
+              Explore Our Popular Programmes
+            </h2>
 
-        <div className="grid md:grid-cols-3 gap-6">
+            <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+              Discover career-focused programmes designed to equip students with practical skills and academic excellence.
+            </p>
+          </motion.div>
 
-          {programmes.map((programme) => (
-            <ProgrammeCard
-              key={programme.title}
-              title={programme.title}
-              description={programme.description}
-            />
-          ))}
-
-        </div>
-
-      </section>
-
-      {/* Testimonials */}
-      <section className="bg-slate-100 py-20">
-
-        <div className="max-w-7xl mx-auto px-5">
-
-          <h2 className="text-4xl font-bold text-center mb-10">
-            Student Testimonials
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-6">
-
-            {testimonials.map((testimonial) => (
-              <Testimonial
-                key={testimonial.name}
-                name={testimonial.name}
-                text={testimonial.text}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {programmes.map((programme, index) => (
+              <ProgrammeCard
+                key={index}
+                {...programme}
               />
             ))}
+          </div>
+        </div>
+      </section>
 
+      {/* WHY CHOOSE US */}
+      <section className="section-padding bg-slate-50">
+        <div className="container-custom px-6">
+
+          <div className="text-center mb-14">
+            <span className="text-yellow-500 font-bold uppercase">
+              Why Choose Us
+            </span>
+
+            <h2 className="text-4xl font-bold text-slate-900 mt-3">
+              Why Students Choose Unisuccess
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{
+                  opacity: 0,
+                  y: 40,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.2,
+                }}
+                viewport={{ once: true }}
+                className="bg-white rounded-3xl p-8 shadow-lg hover-card"
+              >
+                <h3 className="font-bold text-xl text-blue-900 mb-4">
+                  {feature.title}
+                </h3>
+
+                <p className="text-gray-600">
+                  {feature.text}
+                </p>
+              </motion.div>
+            ))}
           </div>
 
         </div>
-
       </section>
 
+      {/* TESTIMONIALS */}
+      <Testimonial />
+
+      {/* NEWS */}
       <NewsSection />
 
+      {/* PARTNERS */}
       <PartnerUniversities />
 
+      {/* CTA */}
       <CTASection />
-
-      <Footer />
     </>
   );
 }
-
-export default Home;
