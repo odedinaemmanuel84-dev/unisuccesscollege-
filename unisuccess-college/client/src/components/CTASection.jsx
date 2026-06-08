@@ -1,30 +1,37 @@
 import { Link } from "react-router-dom";
 
-function CTASection() {
+export default function CTASection() {
   return (
-    <section className="bg-blue-950 text-white py-20">
+    <section className="gradient-bg py-24">
+      <div className="container-custom px-6 text-center">
 
-      <div className="max-w-5xl mx-auto text-center px-5">
-
-        <h2 className="text-5xl font-bold mb-5">
-          Start Your Future Today
+        <h2 className="text-white text-4xl md:text-5xl font-bold">
+          Begin Your Journey With Us
         </h2>
 
-        <p className="mb-8">
-          Apply now and become part of a globally focused institution.
+        <p className="text-white/90 mt-6 max-w-2xl mx-auto">
+          Admissions are currently open. Apply today and take the next step towards achieving your academic and professional goals.
         </p>
 
-        <Link
-          to="/admissions"
-          className="bg-yellow-500 text-black px-8 py-4 rounded-xl font-bold"
-        >
-          Apply Now
-        </Link>
+        <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+
+          <Link
+            to="/admissions"
+            className="bg-yellow-400 hover:bg-yellow-500 px-8 py-4 rounded-lg font-bold text-slate-900"
+          >
+            Apply Now
+          </Link>
+
+          <Link
+            to="/contact"
+            className="border border-white text-white px-8 py-4 rounded-lg"
+          >
+            Contact Us
+          </Link>
+
+        </div>
 
       </div>
-
     </section>
   );
 }
-
-export default CTASection;
