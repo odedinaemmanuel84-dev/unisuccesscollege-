@@ -1,37 +1,55 @@
-function Statistics() {
+import CountUp from "react-countup";
+
+export default function Statistics() {
   const stats = [
-    { title: "Students", value: "5,000+" },
-    { title: "Courses", value: "50+" },
-    { title: "Graduates", value: "10,000+" },
-    { title: "Partners", value: "20+" }
+    {
+      value: 5000,
+      title: "Students"
+    },
+    {
+      value: 50,
+      title: "Programmes"
+    },
+    {
+      value: 20,
+      title: "Partners"
+    },
+    {
+      value: 95,
+      title: "Success Rate"
+    }
   ];
 
   return (
-    <section className="py-20 bg-white">
-
-      <div className="max-w-7xl mx-auto px-5">
-
-        <div className="grid md:grid-cols-4 gap-6">
-
-          {stats.map((item) => (
+    <section className="section-padding">
+      <div className="container-custom">
+        <div
+          className="grid md:grid-cols-4 gap-6"
+        >
+          {stats.map((item, i) => (
             <div
-              key={item.title}
-              className="bg-gray-100 rounded-xl p-8 text-center shadow"
+              key={i}
+              className="bg-white shadow-xl rounded-2xl p-8 text-center"
             >
-              <h2 className="text-4xl font-bold text-blue-950">
-                {item.value}
+              <h2
+                className="text-4xl font-bold text-blue-900"
+              >
+                <CountUp
+                  end={item.value}
+                  duration={3}
+                />
+                +
               </h2>
 
-              <p className="mt-2">{item.title}</p>
+              <p
+                className="text-gray-600 mt-2"
+              >
+                {item.title}
+              </p>
             </div>
           ))}
-
         </div>
-
       </div>
-
     </section>
   );
 }
-
-export default Statistics;
