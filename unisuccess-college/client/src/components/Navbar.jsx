@@ -1,15 +1,16 @@
-import { useState, useEffect } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
+import MobileMenu from "./MobileMenu";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Navbar background on scroll
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 40);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -21,49 +22,43 @@ export default function Navbar() {
       );
   }, []);
 
-  const navLinks = [
-    {
-      name: "Home",
-      path: "/",
-    },
-    {
-      name: "About",
-      path: "/about",
-    },
-    {
-      name: "Programmes",
-      path: "/programmes",
-    },
-    {
-      name: "Admissions",
-      path: "/admissions",
-    },
-    {
-      name: "Student Portal",
-      path: "/student-portal",
-    },
-    {
-      name: "Result Checker",
-      path: "/result-checker",
-    },
-    {
-      name: "Contact",
-      path: "/contact",
-    },
-  ];
+  const navLinkClass = ({ isActive }) =>
+    `font-medium transition ${
+      isActive
+        ? "text-yellow-400"
+        : "text-white hover:text-yellow-400"
+    }`;
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-white shadow-lg py-3"
-            : "bg-white/10 backdrop-blur-md py-5"
-        }`}
+      <header
+        className={`
+          fixed
+          top-0
+          left-0
+          w-full
+          z-30
+          transition-all
+          duration-300
+          ${
+            scrolled
+              ? "bg-blue-950/95 backdrop-blur-md shadow-lg"
+              : "bg-blue-900"
+          }
+        `}
       >
-        <div className="container-custom px-6 flex justify-between items-center">
-
+        <div
+          className="
+            container-custom
+            px-6
+            h-20
+            flex
+            items-center
+            justify-between
+          "
+        >
           {/* Logo */}
+
           <Link
             to="/"
             className="flex items-center gap-3"
@@ -74,115 +69,119 @@ export default function Navbar() {
               className="w-12 h-12 object-contain"
             />
 
-            <div>
-              <h2 className="font-bold text-lg text-blue-900">
+            <div className="leading-tight">
+              <h1 className="text-white font-bold text-xl">
                 UNISUCCESS
-              </h2>
+              </h1>
 
-              <p className="text-xs text-yellow-500 font-semibold">
+              <p className="text-yellow-400 text-xs">
                 College of Advanced Learning
               </p>
             </div>
           </Link>
 
           {/* Desktop Menu */}
-          <ul className="hidden lg:flex items-center gap-8 font-medium">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <Link
-                  to={link.path}
-                  className="text-slate-800 hover:text-yellow-500 transition duration-300"
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
 
-          {/* Apply Button */}
-          <Link
-            to="/admissions"
-            className="hidden lg:block bg-yellow-400 hover:bg-yellow-500 text-slate-900 px-6 py-3 rounded-lg font-bold transition duration-300"
-          >
-            Apply Now
-          </Link>
+          <nav className="hidden lg:flex items-center gap-8">
+            <NavLink
+              to="/"
+              className={navLinkClass}
+            >
+              Home
+            </NavLink>
 
-          {/* Mobile Toggle */}
-          <button
-            className="lg:hidden text-2xl text-blue-900"
-            onClick={() =>
-              setOpen(!open)
-            }
-          >
-            {open ? (
-              <FaTimes />
-            ) : (
-              <FaBars />
-            )}
-          </button>
-        </div>
-      </nav>
+            <NavLink
+              to="/about"
+              className={navLinkClass}
+            >
+              About
+            </NavLink>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{
-              opacity: 0,
-              x: "100%",
-            }}
-            animate={{
-              opacity: 1,
-              x: 0,
-            }}
-            exit={{
-              opacity: 0,
-              x: "100%",
-            }}
-            transition={{
-              duration: 0.3,
-            }}
-            className="fixed top-0 right-0 h-screen w-72 bg-white shadow-2xl z-[60] p-8"
-          >
-            <div className="flex justify-end mb-8">
-              <button
-                onClick={() =>
-                  setOpen(false)
-                }
-                className="text-2xl"
-              >
-                <FaTimes />
-              </button>
-            </div>
+            <NavLink
+              to="/programmes"
+              className={navLinkClass}
+            >
+              Programmes
+            </NavLink>
 
-            <ul className="space-y-6">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    onClick={() =>
-                      setOpen(false)
-                    }
-                    className="block text-lg font-medium text-slate-700 hover:text-yellow-500"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <NavLink
+              to="/admissions"
+              className={navLinkClass}
+            >
+              Admissions
+            </NavLink>
+
+            <NavLink
+              to="/student-portal"
+              className={navLinkClass}
+            >
+              Student Portal
+            </NavLink>
+
+            <NavLink
+              to="/result-checker"
+              className={navLinkClass}
+            >
+              Result Checker
+            </NavLink>
+
+            <NavLink
+              to="/contact"
+              className={navLinkClass}
+            >
+              Contact
+            </NavLink>
+
+            <NavLink
+              to="/login"
+              className={navLinkClass}
+            >
+              Login
+            </NavLink>
 
             <Link
               to="/admissions"
-              onClick={() =>
-                setOpen(false)
-              }
-              className="mt-10 block text-center bg-yellow-400 text-slate-900 py-3 rounded-lg font-bold"
+              className="
+                bg-yellow-400
+                hover:bg-yellow-500
+                text-slate-900
+                px-5
+                py-3
+                rounded-lg
+                font-bold
+                transition
+              "
             >
               Apply Now
             </Link>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </nav>
+
+          {/* Mobile Menu Button */}
+
+          <button
+            onClick={() =>
+              setIsOpen(true)
+            }
+            className="
+              lg:hidden
+              text-white
+              text-3xl
+            "
+          >
+            <FaBars />
+          </button>
+        </div>
+      </header>
+
+      {/* Spacer */}
+      <div className="h-20"></div>
+
+      {/* Mobile Menu */}
+
+      <MobileMenu
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+      />
     </>
   );
-            }
+          }
