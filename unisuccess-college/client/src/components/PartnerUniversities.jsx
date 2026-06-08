@@ -1,35 +1,35 @@
-function PartnerUniversities() {
+export default function PartnerUniversities() {
   const partners = [
-    "University Partner A",
-    "University Partner B",
-    "University Partner C",
-    "University Partner D"
+    "International Universities",
+    "Healthcare Institutions",
+    "Professional Bodies",
+    "Global Study Centres",
   ];
 
   return (
-    <section className="py-20 bg-slate-100">
-      <div className="max-w-7xl mx-auto px-5">
+    <section className="section-padding bg-white">
+      <div className="container-custom px-6 text-center">
 
-        <h2 className="text-4xl font-bold text-center mb-10">
-          Partner Universities
+        <span className="text-yellow-500 font-bold uppercase">
+          Partnerships
+        </span>
+
+        <h2 className="text-4xl font-bold text-slate-900 mt-3 mb-14">
+          Our Strategic Partners
         </h2>
 
         <div className="grid md:grid-cols-4 gap-6">
-
-          {partners.map((partner) => (
+          {partners.map((partner, index) => (
             <div
-              key={partner}
-              className="bg-white p-6 rounded-xl shadow text-center"
+              key={index}
+              className="bg-slate-50 p-8 rounded-2xl shadow-md font-semibold text-blue-900"
             >
               {partner}
             </div>
           ))}
-
         </div>
 
       </div>
     </section>
   );
 }
-
-export default PartnerUniversities;
