@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --primary: #0a3d91;
+  --secondary: #f4b400;
+  --accent: #e53935;
+  --dark: #0f172a;
+  --light: #f8fafc;
 }
 
 html {
@@ -11,15 +13,50 @@ html {
 }
 
 body {
+  background: var(--light);
   font-family: Inter, sans-serif;
-  background: #f8fafc;
-  color: #111827;
+  overflow-x: hidden;
 }
 
-a {
-  text-decoration: none;
+.gradient-bg {
+  background:
+    linear-gradient(
+      135deg,
+      #0a3d91,
+      #123f8a,
+      #1d4ed8
+    );
 }
 
-button {
-  cursor: pointer;
+.gold-gradient {
+  background:
+    linear-gradient(
+      135deg,
+      #f4b400,
+      #ffd54f
+    );
+}
+
+.glass {
+  backdrop-filter: blur(16px);
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+}
+
+.section-padding {
+  padding: 6rem 1rem;
+}
+
+.container-custom {
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.hover-card {
+  transition: .4s;
+}
+
+.hover-card:hover {
+  transform: translateY(-8px);
 }
