@@ -1,40 +1,87 @@
-import { FaPhone, FaEnvelope } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaWhatsapp,
+  FaPhone,
+} from "react-icons/fa";
 
-function Footer() {
+export default function Footer() {
   return (
-    <footer className="bg-blue-950 text-white mt-20">
+    <footer className="bg-slate-900 text-white">
 
-      <div className="max-w-7xl mx-auto px-5 py-12">
+      <div className="container-custom px-6 py-16">
 
-        <h2 className="text-3xl font-bold">
-          UNISUCCESS COLLEGE
-        </h2>
+        <div className="grid md:grid-cols-4 gap-10">
 
-        <p className="mt-4 text-gray-300">
-          Your Future, Our Commitment.
-        </p>
+          <div>
+            <img
+              src="/logo.png"
+              alt="Logo"
+              className="w-20 mb-4"
+            />
 
-        <div className="mt-6 space-y-2">
-          <p className="flex gap-2 items-center">
-            <FaPhone />
-            07053216326
-          </p>
+            <p className="text-gray-300">
+              Unisuccess College of Advanced Learning Services dedicated to excellence in education.
+            </p>
+          </div>
 
-          <p className="flex gap-2 items-center">
-            <FaPhone />
-            08139500216
-          </p>
+          <div>
+            <h3 className="font-bold text-xl mb-4">
+              Quick Links
+            </h3>
 
-          <p className="flex gap-2 items-center">
-            <FaEnvelope />
-            info@unisuccesscollege.edu
-          </p>
+            <ul className="space-y-3 text-gray-300">
+              <li>About</li>
+              <li>Admissions</li>
+              <li>Programmes</li>
+              <li>Contact</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-bold text-xl mb-4">
+              Contact
+            </h3>
+
+            <div className="space-y-3 text-gray-300">
+
+              <p className="flex items-center gap-2">
+                <FaPhone />
+                07053216326
+              </p>
+
+              <p className="flex items-center gap-2">
+                <FaPhone />
+                08139500216
+              </p>
+
+            </div>
+          </div>
+
+          <div>
+            <h3 className="font-bold text-xl mb-4">
+              Follow Us
+            </h3>
+
+            <div className="flex gap-4 text-2xl">
+
+              <FaFacebookF />
+
+              <FaInstagram />
+
+              <FaWhatsapp />
+
+            </div>
+          </div>
+
         </div>
 
+      </div>
+
+      <div className="border-t border-white/10 py-6 text-center text-gray-400">
+        © {new Date().getFullYear()} Unisuccess College. All Rights Reserved.
       </div>
 
     </footer>
   );
 }
-
-export default Footer;
