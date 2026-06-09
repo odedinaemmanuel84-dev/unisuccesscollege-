@@ -1,73 +1,82 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
-function Login() {
-  const [formData, setFormData] = useState({
-    studentId: "",
-    password: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+export default function Login() {
+  const [studentId, setStudentId] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    console.log({
+      studentId,
+      password,
+    });
+
+    alert("Login integration coming soon.");
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-100 px-5">
+    <section className="section-padding bg-slate-50 min-h-screen flex items-center">
 
-      <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md">
+      <div className="container-custom px-6">
 
-        <h1 className="text-3xl font-bold text-center mb-6">
-          Student Login
-        </h1>
+        <div className="max-w-md mx-auto bg-white rounded-3xl shadow-2xl p-10">
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+          <h1 className="text-4xl font-bold text-blue-900 text-center">
+            Student Login
+          </h1>
 
-          <input
-            type="text"
-            name="studentId"
-            placeholder="Student ID"
-            value={formData.studentId}
-            onChange={handleChange}
-            className="w-full border p-3 rounded-lg"
-          />
+          <p className="text-center text-gray-600 mt-3">
+            Sign in to access your dashboard.
+          </p>
 
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={handleChange}
-            className="w-full border p-3 rounded-lg"
-          />
-
-          <button
-            type="submit"
-            className="w-full bg-blue-900 text-white py-3 rounded-lg"
+          <form
+            onSubmit={handleSubmit}
+            className="mt-10 space-y-6"
           >
-            Login
-          </button>
+            <input
+              type="text"
+              placeholder="Student ID"
+              required
+              value={studentId}
+              onChange={(e) =>
+                setStudentId(e.target.value)
+              }
+              className="w-full border rounded-xl px-5 py-4"
+            />
 
-        </form>
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              value={password}
+              onChange={(e) =>
+                setPassword(e.target.value)
+              }
+              className="w-full border rounded-xl px-5 py-4"
+            />
 
-        <Link
-          to="/result-checker"
-          className="block text-center text-blue-700 mt-5"
-        >
-          Check Result
-        </Link>
+            <button
+              type="submit"
+              className="
+                w-full
+                bg-yellow-400
+                hover:bg-yellow-500
+                text-slate-900
+                font-bold
+                py-4
+                rounded-xl
+              "
+            >
+              Login
+            </button>
+
+          </form>
+
+        </div>
 
       </div>
 
-    </div>
+    </section>
   );
 }
-
-export default Login;
