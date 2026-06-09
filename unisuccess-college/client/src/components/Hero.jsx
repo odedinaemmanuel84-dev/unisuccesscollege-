@@ -29,7 +29,7 @@ export default function Hero() {
           <h1
             className="text-white text-5xl md:text-7xl font-extrabold mt-6"
           >
-            Unisuccess College
+            UNISUCCESS COLLEGE
           </h1>
 
           <p
