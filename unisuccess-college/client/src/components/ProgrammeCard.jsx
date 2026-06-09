@@ -1,38 +1,67 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 export default function ProgrammeCard({
   title,
-  description,
-  icon,
 }) {
+  const slug = title
+    .toLowerCase()
+    .replace(/\s+/g, "-");
+
   return (
     <motion.div
       whileHover={{
         y: -10,
       }}
-      className="bg-white rounded-3xl shadow-xl p-8 text-center"
+      className="
+        bg-white
+        rounded-3xl
+        overflow-hidden
+        shadow-lg
+        hover:shadow-2xl
+        transition
+      "
     >
-      <div
-        className="w-20 h-20 mx-auto rounded-full bg-yellow-100 text-yellow-500 flex items-center justify-center text-3xl mb-6"
-      >
-        {icon}
+      <img
+        src="/programme.jpg"
+        alt={title}
+        className="
+          w-full
+          h-48
+          object-cover
+        "
+      />
+
+      <div className="p-6">
+
+        <h3 className="text-xl font-bold text-blue-900 min-h-[60px]">
+          {title}
+        </h3>
+
+        <p className="text-gray-600 mt-4">
+          Gain practical knowledge and professional skills through our
+          industry-relevant curriculum.
+        </p>
+
+        <Link
+          to={`/programmes/${slug}`}
+          className="
+            mt-6
+            inline-flex
+            items-center
+            gap-2
+            text-yellow-500
+            font-semibold
+            hover:text-blue-900
+          "
+        >
+          Learn More
+
+          <FaArrowRight />
+        </Link>
+
       </div>
-
-      <h3
-        className="text-2xl font-bold text-blue-900 mb-4"
-      >
-        {title}
-      </h3>
-
-      <p className="text-gray-600 mb-6">
-        {description}
-      </p>
-
-      <button
-        className="bg-blue-900 hover:bg-blue-800 text-white px-6 py-3 rounded-lg transition"
-      >
-        Learn More
-      </button>
     </motion.div>
   );
 }
