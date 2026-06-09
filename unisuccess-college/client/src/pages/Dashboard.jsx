@@ -1,118 +1,192 @@
-import DashboardSidebar from "../components/DashboardSidebar";
-import ResultTable from "../components/ResultTable";
-
 import {
   FaUsers,
-  FaBook,
-  FaGraduationCap,
-  FaChartLine
+  FaFileUpload,
+  FaClipboardCheck,
+  FaUserGraduate,
+  FaSignOutAlt,
 } from "react-icons/fa";
 
-function Dashboard() {
+export default function Dashboard() {
+  const stats = [
+    {
+      title: "Total Students",
+      value: "1,245",
+      icon: <FaUsers />,
+    },
+    {
+      title: "Applications",
+      value: "128",
+      icon: <FaClipboardCheck />,
+    },
+    {
+      title: "Results Uploaded",
+      value: "56",
+      icon: <FaFileUpload />,
+    },
+    {
+      title: "Graduates",
+      value: "320",
+      icon: <FaUserGraduate />,
+    },
+  ];
+
   return (
-    <div className="flex bg-slate-100 min-h-screen">
+    <div className="bg-slate-100 min-h-screen">
 
-      <DashboardSidebar />
+      {/* Header */}
+      <header className="bg-white shadow px-6 py-4 flex justify-between items-center">
 
-      <main className="flex-1 p-6">
+        <div>
+          <h1 className="text-3xl font-bold text-blue-900">
+            Admin Dashboard
+          </h1>
 
-        <h1 className="text-4xl font-bold mb-8">
-          Dashboard Overview
-        </h1>
+          <p className="text-gray-500">
+            Welcome back, Administrator
+          </p>
+        </div>
 
-        {/* Stats Cards */}
-        <div className="grid md:grid-cols-4 gap-6">
+        <button
+          className="
+            flex
+            items-center
+            gap-2
+            bg-red-500
+            hover:bg-red-600
+            text-white
+            px-5
+            py-3
+            rounded-xl
+            transition
+          "
+        >
+          <FaSignOutAlt />
 
-          <div className="bg-white rounded-xl shadow p-6">
-            <FaUsers
-              size={40}
-              className="text-blue-900 mb-3"
-            />
-            <h2 className="font-bold text-xl">
-              Students
-            </h2>
-            <p className="text-3xl font-bold mt-2">
-              5,000+
-            </p>
-          </div>
+          Logout
+        </button>
 
-          <div className="bg-white rounded-xl shadow p-6">
-            <FaGraduationCap
-              size={40}
-              className="text-green-700 mb-3"
-            />
-            <h2 className="font-bold text-xl">
-              Admissions
-            </h2>
-            <p className="text-3xl font-bold mt-2">
-              1,200
-            </p>
-          </div>
+      </header>
 
-          <div className="bg-white rounded-xl shadow p-6">
-            <FaBook
-              size={40}
-              className="text-purple-700 mb-3"
-            />
-            <h2 className="font-bold text-xl">
-              Courses
-            </h2>
-            <p className="text-3xl font-bold mt-2">
-              50+
-            </p>
-          </div>
+      <div className="container-custom px-6 py-10">
 
-          <div className="bg-white rounded-xl shadow p-6">
-            <FaChartLine
-              size={40}
-              className="text-red-600 mb-3"
-            />
-            <h2 className="font-bold text-xl">
-              Performance
-            </h2>
-            <p className="text-3xl font-bold mt-2">
-              95%
-            </p>
-          </div>
+        {/* Statistics */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          {stats.map((stat, index) => (
+            <div
+              key={index}
+              className="
+                bg-white
+                rounded-2xl
+                shadow-lg
+                p-6
+              "
+            >
+              <div className="flex justify-between items-center">
+
+                <div>
+                  <p className="text-gray-500">
+                    {stat.title}
+                  </p>
+
+                  <h2 className="text-3xl font-bold text-blue-900 mt-2">
+                    {stat.value}
+                  </h2>
+                </div>
+
+                <div className="text-4xl text-yellow-500">
+                  {stat.icon}
+                </div>
+
+              </div>
+            </div>
+          ))}
 
         </div>
 
-        {/* Recent Results */}
-        <div className="bg-white rounded-xl shadow mt-10 p-6">
+        {/* Quick Actions */}
+        <div className="mt-10 bg-white rounded-2xl shadow-lg p-8">
 
-          <h2 className="text-2xl font-bold mb-6">
-            Recent Results
+          <h2 className="text-2xl font-bold text-blue-900 mb-6">
+            Quick Actions
           </h2>
 
-          <ResultTable />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <button
+              className="
+                bg-blue-900
+                hover:bg-blue-800
+                text-white
+                py-4
+                rounded-xl
+                font-semibold
+              "
+            >
+              Upload Results
+            </button>
+
+            <button
+              className="
+                bg-yellow-400
+                hover:bg-yellow-500
+                text-slate-900
+                py-4
+                rounded-xl
+                font-semibold
+              "
+            >
+              Manage Students
+            </button>
+
+            <button
+              className="
+                bg-green-500
+                hover:bg-green-600
+                text-white
+                py-4
+                rounded-xl
+                font-semibold
+              "
+            >
+              Review Admissions
+            </button>
+
+          </div>
 
         </div>
 
-        {/* Activities */}
-        <div className="bg-white rounded-xl shadow mt-10 p-6">
+        {/* Recent Activities */}
+        <div className="mt-10 bg-white rounded-2xl shadow-lg p-8">
 
-          <h2 className="text-2xl font-bold mb-6">
+          <h2 className="text-2xl font-bold text-blue-900 mb-6">
             Recent Activities
           </h2>
 
-          <ul className="space-y-4">
+          <div className="space-y-4">
 
-            <li>✅ New student registered</li>
+            <div className="border-b pb-3">
+              Result uploaded for 300 Level Students.
+            </div>
 
-            <li>✅ Admission application approved</li>
+            <div className="border-b pb-3">
+              New admission application received.
+            </div>
 
-            <li>✅ Results uploaded successfully</li>
+            <div className="border-b pb-3">
+              Student profile updated successfully.
+            </div>
 
-            <li>✅ School fees payment received</li>
+            <div>
+              Semester registration opened.
+            </div>
 
-          </ul>
+          </div>
 
         </div>
 
-      </main>
+      </div>
 
     </div>
   );
 }
-
-export default Dashboard;
