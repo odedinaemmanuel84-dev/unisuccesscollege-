@@ -1,8 +1,6 @@
 import { useState } from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
-function ResultChecker() {
+export default function ResultChecker() {
   const [studentId, setStudentId] = useState("");
   const [pin, setPin] = useState("");
 
@@ -13,52 +11,72 @@ function ResultChecker() {
       studentId,
       pin,
     });
+
+    alert("Result integration coming soon.");
   };
 
   return (
-    <>
-      <Navbar />
+    <section className="section-padding bg-slate-50 min-h-screen">
 
-      <section className="max-w-3xl mx-auto px-5 py-20">
+      <div className="container-custom px-6">
 
-        <h1 className="text-5xl font-bold mb-10">
-          Result Checker
-        </h1>
+        <div className="max-w-lg mx-auto bg-white rounded-3xl shadow-2xl p-10">
 
-        <form
-          onSubmit={handleSubmit}
-          className="bg-white shadow-xl rounded-2xl p-8 space-y-5"
-        >
+          <h1 className="text-4xl font-bold text-blue-900 text-center">
+            Result Checker
+          </h1>
 
-          <input
-            type="text"
-            placeholder="Student ID"
-            value={studentId}
-            onChange={(e) => setStudentId(e.target.value)}
-            className="w-full border p-4 rounded-lg"
-          />
+          <p className="text-center text-gray-600 mt-3">
+            Enter your Student ID and PIN.
+          </p>
 
-          <input
-            type="password"
-            placeholder="PIN"
-            value={pin}
-            onChange={(e) => setPin(e.target.value)}
-            className="w-full border p-4 rounded-lg"
-          />
-
-          <button
-            className="bg-blue-900 text-white px-8 py-3 rounded-lg"
+          <form
+            onSubmit={handleSubmit}
+            className="mt-10 space-y-6"
           >
-            Check Result
-          </button>
+            <input
+              type="text"
+              required
+              placeholder="Student ID"
+              value={studentId}
+              onChange={(e) =>
+                setStudentId(e.target.value)
+              }
+              className="w-full border rounded-xl px-5 py-4"
+            />
 
-        </form>
+            <input
+              type="password"
+              required
+              placeholder="PIN"
+              value={pin}
+              onChange={(e) =>
+                setPin(e.target.value)
+              }
+              className="w-full border rounded-xl px-5 py-4"
+            />
 
-      </section>
+            <button
+              type="submit"
+              className="
+                w-full
+                bg-yellow-400
+                hover:bg-yellow-500
+                text-slate-900
+                font-bold
+                py-4
+                rounded-xl
+              "
+            >
+              Check Result
+            </button>
 
-      <Footer />
-    </>
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
   );
 }
-
-export default ResultChecker;
