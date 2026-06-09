@@ -27,18 +27,30 @@ export default function Contact() {
             enquiries and support.
           </p>
         </div>
-      </section>
+      </div>
+    </section>
+    
 
       {/* Contact Section */}
       <section className="section-padding bg-slate-50">
-        <div className="container-custom px-6 grid lg:grid-cols-2 gap-12">
+  <div className="container-custom px-6">
+    <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-start">
 
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl shadow-xl p-10"
+            className="
+  bg-white
+  rounded-3xl
+  shadow-xl
+  p-10
+  h-full
+  flex
+  flex-col
+  justify-between
+"
           >
             <span className="text-yellow-500 font-bold uppercase">
               Get In Touch
@@ -48,7 +60,7 @@ export default function Contact() {
               Contact Information
             </h2>
 
-            <div className="space-y-8">
+            <div className="space-y-10 flex-1 mt-8">
 
               <div className="flex items-start gap-4">
                 <FaPhoneAlt className="text-yellow-500 text-2xl mt-1" />
@@ -139,7 +151,13 @@ export default function Contact() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl shadow-xl p-10"
+            className="
+  bg-white
+  rounded-3xl
+  shadow-xl
+  p-10
+  h-full
+"
           >
             <span className="text-yellow-500 font-bold uppercase">
               Send a Message
@@ -155,7 +173,19 @@ export default function Contact() {
                 type="text"
                 placeholder="Full Name"
                 required
-                className="w-full border rounded-xl px-5 py-4"
+                className="
+  w-full
+  border
+  border-slate-200
+  rounded-xl
+  px-5
+  py-4
+  focus:outline-none
+  focus:ring-2
+  focus:ring-yellow-400
+  focus:border-transparent
+  transition
+"
               />
 
               <input
@@ -202,7 +232,7 @@ export default function Contact() {
 
       {/* Google Maps */}
       <section className="bg-white pb-20 px-6">
-        <div className="container-custom">
+        <div className="max-w-6xl mx-auto">
 
           <div className="rounded-3xl overflow-hidden shadow-2xl">
             <iframe
