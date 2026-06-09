@@ -76,7 +76,7 @@ export default function Hero() {
   >
     Explore Programmes
   </Link>
-</div 
+</div>
         </motion.div>
       </div>
     </section>
