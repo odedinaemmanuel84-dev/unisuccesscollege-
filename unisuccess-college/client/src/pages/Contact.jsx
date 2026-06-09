@@ -13,7 +13,7 @@ export default function Contact() {
     <>
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-950 via-blue-800 to-yellow-500 py-28 text-white">
-        <div className="container-custom px-6 text-center">
+        <div className="max-w-6xl mx-auto px-6 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -30,9 +30,9 @@ export default function Contact() {
       </section>
 
       {/* Contact Section */}
-      <section className="section-padding bg-slate-50">
-        <div className="container-custom px-6">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-stretch">
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-8">
 
             {/* Contact Information */}
             <motion.div
@@ -43,10 +43,11 @@ export default function Contact() {
                 bg-white
                 rounded-3xl
                 shadow-xl
-                p-10
-                h-full
+                p-8 md:p-10
                 flex
                 flex-col
+                h-full
+                w-full
               "
             >
               <span className="text-yellow-500 font-bold uppercase">
@@ -60,7 +61,7 @@ export default function Contact() {
               <div className="space-y-10 flex-1 mt-10">
 
                 <div className="flex items-start gap-4">
-                  <FaPhoneAlt className="text-yellow-500 text-2xl mt-1" />
+                  <FaPhoneAlt className="text-yellow-500 text-2xl mt-1 flex-shrink-0" />
 
                   <div>
                     <h3 className="font-bold text-blue-900">
@@ -78,7 +79,7 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <FaEnvelope className="text-yellow-500 text-2xl mt-1" />
+                  <FaEnvelope className="text-yellow-500 text-2xl mt-1 flex-shrink-0" />
 
                   <div>
                     <h3 className="font-bold text-blue-900">
@@ -92,7 +93,7 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <FaMapMarkerAlt className="text-yellow-500 text-2xl mt-1" />
+                  <FaMapMarkerAlt className="text-yellow-500 text-2xl mt-1 flex-shrink-0" />
 
                   <div>
                     <h3 className="font-bold text-blue-900">
@@ -173,8 +174,9 @@ export default function Contact() {
                 bg-white
                 rounded-3xl
                 shadow-xl
-                p-10
+                p-8 md:p-10
                 h-full
+                w-full
               "
             >
               <span className="text-yellow-500 font-bold uppercase">
@@ -305,4 +307,4 @@ export default function Contact() {
       </section>
     </>
   );
-                    }
+                            }
