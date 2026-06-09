@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export default function Hero() {
@@ -40,19 +41,42 @@ export default function Hero() {
             opportunities.
           </p>
 
-          <div className="flex gap-4 mt-8">
-            <button
-              className="bg-yellow-400 px-8 py-4 rounded-lg font-bold"
-            >
-              Apply Now
-            </button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+  <Link
+    to="/admissions"
+    className="
+      bg-yellow-400
+      hover:bg-yellow-500
+      text-slate-900
+      px-8
+      py-4
+      rounded-lg
+      font-bold
+      transition
+      text-center
+    "
+  >
+    Apply Now
+  </Link>
 
-            <button
-              className="border border-white text-white px-8 py-4 rounded-lg"
-            >
-              Explore Programmes
-            </button>
-          </div>
+  <Link
+    to="/programmes"
+    className="
+      border
+      border-white
+      text-white
+      hover:bg-white
+      hover:text-blue-900
+      px-8
+      py-4
+      rounded-lg
+      transition
+      text-center
+    "
+  >
+    Explore Programmes
+  </Link>
+</div 
         </motion.div>
       </div>
     </section>
