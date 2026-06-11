@@ -16,7 +16,9 @@ import Contact from "../pages/Contact";
 import Login from "../pages/Login";
 import StudentPortal from "../pages/StudentPortal";
 import ResultChecker from "../pages/ResultChecker";
+
 import Dashboard from "../pages/Dashboard";
+import AdminLogin from "../pages/AdminLogin";
 
 function AppRoutes() {
   return (
@@ -49,21 +51,31 @@ function AppRoutes() {
           element={<Contact />}
         />
 
+        {/* Student Login */}
         <Route
           path="/login"
           element={<Login />}
         />
 
+        {/* Student Portal */}
         <Route
           path="/student-portal"
           element={<StudentPortal />}
         />
 
+        {/* Result Checker */}
         <Route
           path="/result-checker"
           element={<ResultChecker />}
         />
 
+        {/* Admin Login */}
+        <Route
+          path="/admin-login"
+          element={<AdminLogin />}
+        />
+
+        {/* Admin Dashboard */}
         <Route
           path="/dashboard"
           element={<Dashboard />}
@@ -71,7 +83,6 @@ function AppRoutes() {
       </Routes>
 
       <Footer />
-
     </BrowserRouter>
   );
 }
