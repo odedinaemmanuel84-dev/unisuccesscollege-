@@ -17,6 +17,10 @@ import Login from "../pages/Login";
 import StudentPortal from "../pages/StudentPortal";
 import ResultChecker from "../pages/ResultChecker";
 
+import CourseRegistration from "../pages/CourseRegistration";
+import StudentProfile from "../pages/StudentProfile";
+import AcademicRecords from "../pages/AcademicRecords";
+
 import Dashboard from "../pages/Dashboard";
 import AdminLogin from "../pages/AdminLogin";
 
@@ -26,6 +30,7 @@ function AppRoutes() {
       <Navbar />
 
       <Routes>
+        {/* Public Pages */}
         <Route
           path="/"
           element={<Home />}
@@ -51,7 +56,7 @@ function AppRoutes() {
           element={<Contact />}
         />
 
-        {/* Student Login */}
+        {/* Student Authentication */}
         <Route
           path="/login"
           element={<Login />}
@@ -69,7 +74,23 @@ function AppRoutes() {
           element={<ResultChecker />}
         />
 
-        {/* Admin Login */}
+        {/* Student Features */}
+        <Route
+          path="/course-registration"
+          element={<CourseRegistration />}
+        />
+
+        <Route
+          path="/student-profile"
+          element={<StudentProfile />}
+        />
+
+        <Route
+          path="/academic-records"
+          element={<AcademicRecords />}
+        />
+
+        {/* Admin Authentication */}
         <Route
           path="/admin-login"
           element={<AdminLogin />}
