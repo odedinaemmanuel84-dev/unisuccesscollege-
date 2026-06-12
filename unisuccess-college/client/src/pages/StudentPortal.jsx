@@ -29,21 +29,21 @@ export default function StudentPortal() {
       description:
         "Register your courses online.",
       icon: <FaBook />,
-      link: "/dashboard",
+      link: "/course-registration",
     },
     {
       title: "Student Profile",
       description:
         "Manage your academic information.",
       icon: <FaUserGraduate />,
-      link: "/dashboard",
+      link: "/student-profile",
     },
     {
       title: "Academic Records",
       description:
         "Track your academic progress.",
       icon: <FaClipboardList />,
-      link: "/dashboard",
+      link: "/academic-records",
     },
   ];
 
