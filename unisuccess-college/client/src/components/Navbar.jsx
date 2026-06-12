@@ -58,7 +58,6 @@ export default function Navbar() {
           "
         >
           {/* Logo */}
-
           <Link
             to="/"
             className="flex items-center gap-3"
@@ -81,7 +80,6 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Menu */}
-
           <nav className="hidden lg:flex items-center gap-8">
             <NavLink
               to="/"
@@ -132,11 +130,20 @@ export default function Navbar() {
               Contact
             </NavLink>
 
+            {/* Student Login */}
             <NavLink
               to="/login"
               className={navLinkClass}
             >
-              Login
+              Student Login
+            </NavLink>
+
+            {/* Admin Login */}
+            <NavLink
+              to="/admin-login"
+              className={navLinkClass}
+            >
+              Admin Login
             </NavLink>
 
             <Link
@@ -157,7 +164,6 @@ export default function Navbar() {
           </nav>
 
           {/* Mobile Menu Button */}
-
           <button
             onClick={() =>
               setIsOpen(true)
@@ -177,11 +183,10 @@ export default function Navbar() {
       <div className="h-20"></div>
 
       {/* Mobile Menu */}
-
       <MobileMenu
         isOpen={isOpen}
         setIsOpen={setIsOpen}
       />
     </>
   );
-          }
+}
