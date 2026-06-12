@@ -31,7 +31,12 @@ export default function MobileMenu({
     { name: "Student Portal", path: "/student-portal" },
     { name: "Result Checker", path: "/result-checker" },
     { name: "Contact", path: "/contact" },
-    { name: "Login", path: "/login" },
+
+    // Student Login
+    { name: "Student Login", path: "/login" },
+
+    // Admin Login
+    { name: "Admin Login", path: "/admin-login" },
   ];
 
   return (
@@ -39,7 +44,6 @@ export default function MobileMenu({
       {isOpen && (
         <>
           {/* Overlay */}
-
           <motion.div
             onClick={closeMenu}
             initial={{ opacity: 0 }}
@@ -49,7 +53,6 @@ export default function MobileMenu({
           />
 
           {/* Menu */}
-
           <motion.div
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
@@ -66,6 +69,7 @@ export default function MobileMenu({
               z-50
               shadow-2xl
               p-8
+              overflow-y-auto
             "
           >
             <div className="flex justify-between items-center mb-10">
@@ -75,7 +79,12 @@ export default function MobileMenu({
 
               <button
                 onClick={closeMenu}
-                className="text-3xl"
+                className="
+                  text-3xl
+                  text-slate-700
+                  hover:text-red-500
+                  transition
+                "
               >
                 ×
               </button>
@@ -114,6 +123,7 @@ export default function MobileMenu({
                 font-bold
                 py-4
                 rounded-xl
+                transition
               "
             >
               Apply Now
